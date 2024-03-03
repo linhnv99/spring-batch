@@ -1,0 +1,19 @@
+
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3390}/${DB_NAME:batch-db}?useUnicode=yes&characterEncoding=UTF-8
+    username: ${DB_USERNAME:linhnv}
+    password: ${DB_PASSWORD:linhnv}
+  batch:
+    jdbc:
+      initialize-schema: ALWAYS
+
+file:
+  input: players.csv

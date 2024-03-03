@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql
+    container_name: batch-db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ALLOW_EMPTY_ROOT_PASSWORD: 1
+      MYSQL_DATABASE: batch-db
+      MYSQL_USER: linhnv
+      MYSQL_PASSWORD: linhnv
+    ports:
+      - "3390:3306"
+      - "33900:33060"
+    volumes:
+      - ./tmp/mysql:/var/lib/mysql
+    restart: on-failure
